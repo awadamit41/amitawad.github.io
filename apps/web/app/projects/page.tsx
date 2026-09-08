@@ -1,0 +1,7 @@
+"use client";
+import Link from "next/link";
+import { useMemo, useState } from "react";
+import { projects } from "../../data/projects";
+import { SectionHeading } from "../../components/SectionHeading";
+const cats=["All","Engineering","Open Source","Automation","Entrepreneurship","Research"];
+export default function Projects(){const [cat,setCat]=useState("All"); const visible=useMemo(()=>cat==="All"?projects:projects.filter(p=>p.category.includes(cat)),[cat]);return <main className="inner-page"><section className="inner-hero section-shell"><span className="eyebrow">PROJECTS</span><h1>WHERE IDEAS<br/>TAKE FORM.</h1><p>Selected work across engineering, open source, automation, entrepreneurship, and research.</p></section><section className="section"><div className="section-shell"><div className="filter-row" role="tablist" aria-label="Project categories">{cats.map(c=><button key={c} className={cat===c?"is-active":""} onClick={()=>setCat(c)}>{c}</button>)}</div><div className="project-grid project-grid--full">{visible.map((p,i)=><Link className="project-card" href={`/projects/${p.slug}`} key={p.slug}><span className="project-index">0{i+1}</span><span className="project-category">{p.category.join(" / ")}</span><div className="project-art" aria-hidden="true"><span /></div><h2>{p.title}</h2><p>{p.problem}</p><span className="project-arrow">VIEW ↗</span></Link>)}</div></div></section></main>}

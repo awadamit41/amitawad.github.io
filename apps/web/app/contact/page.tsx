@@ -1,0 +1,3 @@
+import { MagneticButton } from "../../components/MagneticButton";
+import { site } from "../../data/site";
+export default function Contact(){return <main className="inner-page"><section className="contact-page section-shell"><span className="eyebrow">CONTACT</span><h1>EVERYTHING STARTS<br/>WITH A FIRST STEP.</h1><p>Have an idea, opportunity, or problem worth discussing?</p><div className="contact-actions"><MagneticButton href={`mailto:${site.email}`}>EMAIL ME</MagneticButton><MagneticButton copy>COPY EMAIL</MagneticButton></div><div className="socials"><a href={site.socials.linkedin}>LinkedIn</a><a href={site.socials.github}>GitHub</a><a href={site.socials.instagram}>Instagram</a><a href={site.socials.era}>Infinit Era</a></div></section></main>}

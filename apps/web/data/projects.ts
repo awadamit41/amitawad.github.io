@@ -19,7 +19,7 @@ export const projects: Project[] = [
     slug: "timemanagement",
     title: "Time Management",
     category: ["Engineering", "Open Source"],
-    problem: "A real-world time management application requiring usable QML interfaces, application features, debugging, and collaborative development.",
+    problem: "A real-world time management application requiring usable QML interfaces, feature development, debugging, and collaborative development.",
     overview: "An open-source time management application built around practical UI development and iterative software engineering.",
     solution: "Contributed application features and UI components, resolved issues, and worked with the development team through Git and GitHub.",
     stack: ["QML", "Python", "Qt", "Git", "GitHub", "JavaScript/TypeScript"],

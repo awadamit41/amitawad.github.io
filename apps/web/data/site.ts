@@ -3,7 +3,7 @@ export const site = {
   title: "Amit Awad — Builder. Engineer. Entrepreneur.",
   description:
     "Software engineer, builder, and entrepreneur driven by curiosity, problem-solving, and the desire to build things that matter.",
-  hero: "I EMPATHISE, I THINK & EXECUTE",
+  hero: "I EMPATHISE, THINK & EXECUTE",
   philosophy: "EMPATHISE. THINK. EXECUTE.",
   email: "amit41thinkpad@gmail.com",
   url: "https://amitawad.github.io",

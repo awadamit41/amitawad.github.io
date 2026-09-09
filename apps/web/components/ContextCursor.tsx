@@ -21,7 +21,9 @@ export function ContextCursor() {
     const over = (e: Event) => {
       const target = (e.target as HTMLElement)?.closest<HTMLElement>("a,button,[data-cursor]");
       const text = target?.dataset.cursor ?? (target?.tagName === "A" ? "OPEN" : "");
-      label.current!.textContent = text;
+      if (label.current) {
+        label.current.textContent = text;
+      }
       cursor.current?.classList.toggle("is-active", Boolean(target));
     };
     const loop = () => {

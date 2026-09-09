@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { nav, site } from "../data/site";
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
 
@@ -14,6 +16,12 @@ export function Header() {
     };
     window.addEventListener("keydown", onKeyDown);
     const ids = ["about", "engineering", "projects", "experience", "entrepreneurship", "dharma", "achievement", "contact"];
+    if (pathname !== "/") {
+      setActive(pathname.slice(1));
+      return () => {
+        window.removeEventListener("keydown", onKeyDown);
+      };
+    }
     const observer = new IntersectionObserver((entries) => {
       const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (visible) setActive(visible.target.id);
@@ -23,7 +31,7 @@ export function Header() {
       observer.disconnect();
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <header className="site-header">

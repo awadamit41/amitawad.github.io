@@ -26,6 +26,6 @@ export function MagneticButton({ children, href, copy }: { children: React.React
     try { await navigator.clipboard.writeText("amit41thinkpad@gmail.com"); setCopied(true); window.setTimeout(() => setCopied(false), 1600); } catch {}
   };
 
-  if (copy) return <button data-cursor="COPY" ref={ref} className="button button--magnetic" onClick={handleCopy} onPointerMove={move} onPointerLeave={leave}>{copied ? "COPIED" : children}</button>;
-  return <a data-cursor="OPEN" ref={ref} className="button button--magnetic" href={href} onPointerMove={move} onPointerLeave={leave}>{children}</a>;
+  if (copy) return <button ref={ref} className="button button--magnetic" onClick={handleCopy} onPointerMove={move} onPointerLeave={leave}>{copied ? "COPIED" : children}</button>;
+  return <a ref={ref} className="button button--magnetic" href={href} onPointerMove={move} onPointerLeave={leave}>{children}</a>;
 }

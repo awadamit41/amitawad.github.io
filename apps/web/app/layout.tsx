@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "../components/Header";
-import { ContextCursor } from "../components/ContextCursor";
 import { site } from "../data/site";
 
 export const metadata: Metadata = {
@@ -22,7 +21,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <Header />
-        <ContextCursor />
         <div className="site-transition" aria-hidden="true" />
         {children}
       </body>

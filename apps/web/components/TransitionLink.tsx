@@ -4,7 +4,7 @@ import Link, { type LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
 import { type MouseEvent, type ReactNode } from "react";
 
-type Props = LinkProps & { children: ReactNode; className?: string; href: string; "data-cursor"?: string };
+type Props = LinkProps & { children: ReactNode; className?: string; href: string; };
 
 export function TransitionLink({ href, children, className, ...props }: Props) {
   const router = useRouter();

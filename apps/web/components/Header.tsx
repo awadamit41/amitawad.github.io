@@ -35,14 +35,14 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <Link data-cursor="HOME" className="wordmark" href="/" onClick={() => setOpen(false)} aria-label="Amit Awad home">{site.name.split(" ")[0].toUpperCase()}</Link>
+      <Link className="wordmark" href="/" onClick={() => setOpen(false)} aria-label="Amit Awad home">{site.name.split(" ")[0].toUpperCase()}</Link>
       <button className="menu-toggle" aria-expanded={open} aria-controls="primary-navigation" onClick={() => setOpen((v) => !v)}>
         <span>{open ? "CLOSE" : "MENU"}</span>
       </button>
       <nav id="primary-navigation" className={open ? "is-open" : ""} aria-label="Primary navigation">
         {nav.map((item) => {
           const id = item.href.split("#")[1] || item.label.toLowerCase();
-          return <Link data-cursor="OPEN" className={active === id ? "is-active" : ""} key={item.label} href={item.href} onClick={() => setOpen(false)} aria-current={active === id ? "page" : undefined}>{item.label}</Link>;
+          return <Link className={active === id ? "is-active" : ""} key={item.label} href={item.href} onClick={() => setOpen(false)} aria-current={active === id ? "page" : undefined}>{item.label}</Link>;
         })}
       </nav>
     </header>

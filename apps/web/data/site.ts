@@ -11,13 +11,14 @@ export const site = {
     github: "https://github.com/awadamit41",
     linkedin: "https://www.linkedin.com/in/amit-awad",
     instagram: "https://www.instagram.com/8amittt/",
-    era: "https://www.instagram.com/infinit_era/"
-  }
+    era: "https://www.instagram.com/infinit_era/",
+  },
 } as const;
 
 export const nav = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/#experience" },
-  { label: "Contact", href: "/contact" }
+  { label: "Resume", href: "/resume" },
+  { label: "Contact", href: "/contact" },
 ] as const;

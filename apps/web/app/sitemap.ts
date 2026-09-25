@@ -1,17 +1,16 @@
-export const dynamic = "force-static";
 import type { MetadataRoute } from "next";
+import { projects } from "../data/projects";
 
 const base = "https://amitawad.github.io";
+
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/about",
     "/projects",
-    "/projects/timemanagement",
-    "/projects/weatherviewer",
-    "/projects/qa-automation",
-    "/projects/soy-beverage",
+    ...projects.map((project) => `/projects/${project.slug}`),
     "/dharmaverse",
     "/entrepreneurship",
     "/resume",
@@ -19,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return routes.map((route) => ({
-    url: `${base}${route}`,
+    url: route ? `${base}${route}/` : `${base}/`,
     changeFrequency: "monthly",
     priority: route === "" ? 1 : 0.7,
   }));

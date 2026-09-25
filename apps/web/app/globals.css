@@ -1637,6 +1637,10 @@ h1 {
   .framework {
     grid-template-columns: 1fr;
   }
+  
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
 
   .dharma-flow {
     grid-template-columns: repeat(2, 1fr);

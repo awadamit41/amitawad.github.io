@@ -1,7 +1,99 @@
-"use client";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useMemo, useState } from "react";
 import { projects } from "../../data/projects";
 import { SectionHeading } from "../../components/SectionHeading";
-const cats=["All","Engineering","Open Source","Automation","Entrepreneurship","Research"];
-export default function Projects(){const [cat,setCat]=useState("All"); const visible=useMemo(()=>cat==="All"?projects:projects.filter(p=>p.category.includes(cat)),[cat]);return <main className="inner-page"><section className="inner-hero section-shell"><span className="eyebrow">PROJECTS</span><h1>WHERE IDEAS<br/>TAKE FORM.</h1><p>Selected work across engineering, open source, automation, entrepreneurship, and research.</p></section><section className="section"><div className="section-shell"><div className="filter-row" role="tablist" aria-label="Project categories">{cats.map(c=><button key={c} className={cat===c?"is-active":""} onClick={()=>setCat(c)}>{c}</button>)}</div><div className="project-grid project-grid--full">{visible.map((p,i)=><Link className="project-card" href={`/projects/${p.slug}`} key={p.slug}><span className="project-index">0{i+1}</span><span className="project-category">{p.category.join(" / ")}</span><div className="project-art" aria-hidden="true"><span /></div><h2>{p.title}</h2><p>{p.problem}</p><span className="project-arrow">VIEW ↗</span></Link>)}</div></div></section></main>}
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Selected engineering, open-source, automation, entrepreneurship, and research projects by Amit Awad.",
+};
+
+const cats = [
+  "All",
+  "Engineering",
+  "Open Source",
+  "Automation",
+  "Entrepreneurship",
+  "Research",
+] as const;
+
+export default function Projects() {
+  return (
+    <main className="inner-page">
+      <section className="inner-hero section-shell">
+        <span className="eyebrow">PROJECTS</span>
+
+        <h1>
+          WHERE IDEAS
+          <br />
+          TAKE FORM.
+        </h1>
+
+        <p>
+          Selected work across engineering, open source, automation,
+          entrepreneurship, and research.
+        </p>
+      </section>
+
+      <section className="section">
+        <div className="section-shell">
+          <SectionHeading
+            eyebrow="01 / SELECTED WORK"
+            title="BUILT TO BE USED."
+          />
+
+          <div
+            className="filter-row"
+            role="tablist"
+            aria-label="Project categories"
+          >
+            {cats.map((category) => (
+              <Link
+                key={category}
+                className="filter-chip"
+                href={
+                  category === "All"
+                    ? "/projects"
+                    : `/projects?category=${encodeURIComponent(category)}`
+                }
+                role="tab"
+                aria-selected={category === "All"}
+              >
+                {category}
+              </Link>
+            ))}
+          </div>
+
+          <div className="project-grid">
+            {projects.map((project, index) => (
+              <Link
+                className="project-card"
+                href={`/projects/${project.slug}`}
+                key={project.slug}
+              >
+                <span className="project-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span className="project-category">
+                  {project.category.join(" / ")}
+                </span>
+
+                <div className="project-art" aria-hidden="true">
+                  <span />
+                </div>
+
+                <h2>{project.title}</h2>
+
+                <p>{project.problem}</p>
+
+                <span className="project-arrow">VIEW ↗</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

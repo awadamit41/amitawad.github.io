@@ -14,19 +14,52 @@ export function Header() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
+
     window.addEventListener("keydown", onKeyDown);
-    const ids = ["about", "engineering", "projects", "experience", "entrepreneurship", "dharma", "achievement", "contact"];
+
+    const activePath = pathname.split("/")[1] || "";
+
+    const ids = [
+      "about",
+      "engineering",
+      "projects",
+      "experience",
+      "entrepreneurship",
+      "dharma",
+      "achievement",
+      "contact",
+    ];
+
     if (pathname !== "/") {
-      setActive(pathname.slice(1));
+      setActive(activePath);
+
       return () => {
         window.removeEventListener("keydown", onKeyDown);
       };
     }
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) setActive(visible.target.id);
-    }, { rootMargin: "-25% 0px -65%" });
-    ids.forEach((id) => document.getElementById(id) && observer.observe(document.getElementById(id)!));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          )[0];
+
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-25% 0px -65%" }
+    );
+
+    ids.forEach((id) => {
+      const element = document.getElementById(id);
+
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
     return () => {
       observer.disconnect();
       window.removeEventListener("keydown", onKeyDown);
@@ -35,14 +68,47 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <Link className="wordmark" href="/" onClick={() => setOpen(false)} aria-label="Amit Awad home">{site.name.split(" ")[0].toUpperCase()}</Link>
-      <button className="menu-toggle" aria-expanded={open} aria-controls="primary-navigation" onClick={() => setOpen((v) => !v)}>
+      <Link
+        className="wordmark"
+        href="/"
+        onClick={() => setOpen(false)}
+        aria-label="Amit Awad home"
+      >
+        {site.name.split(" ")[0].toUpperCase()}
+      </Link>
+
+      <button
+        className="menu-toggle"
+        aria-expanded={open}
+        aria-controls="primary-navigation"
+        onClick={() => setOpen((v) => !v)}
+      >
         <span>{open ? "CLOSE" : "MENU"}</span>
       </button>
-      <nav id="primary-navigation" className={open ? "is-open" : ""} aria-label="Primary navigation">
+
+      <nav
+        id="primary-navigation"
+        className={open ? "is-open" : ""}
+        aria-label="Primary navigation"
+      >
         {nav.map((item) => {
-          const id = item.href.split("#")[1] || item.label.toLowerCase();
-          return <Link className={active === id ? "is-active" : ""} key={item.label} href={item.href} onClick={() => setOpen(false)} aria-current={active === id ? "page" : undefined}>{item.label}</Link>;
+          const id =
+            item.href.split("#")[1] ||
+            item.label.toLowerCase();
+
+          return (
+            <Link
+              className={active === id ? "is-active" : ""}
+              key={item.label}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              aria-current={
+                active === id ? "page" : undefined
+              }
+            >
+              {item.label}
+            </Link>
+          );
         })}
       </nav>
     </header>

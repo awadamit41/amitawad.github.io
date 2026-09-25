@@ -1819,6 +1819,18 @@ h1 {
   .project-art {
     height: 115px;
   }
+
+  .section-heading h2 {
+    font-size: clamp(2.2rem, 11vw, 4.4rem);
+  }
+
+  .inner-hero h1,
+  .project-hero h1,
+  .contact-page h1,
+  .dharma-hero h1,
+  .entrepreneurship-page .inner-hero h1 {
+    font-size: clamp(2.2rem, 11.5vw, 4.5rem);
+  }
 }
 
 @media (pointer: fine) {

@@ -1,5 +1,8 @@
+"use client";
+
 import type { Metadata } from "next";
 import Link from "next/link";
+import { useMemo, useState } from "react";
 import { projects } from "../../data/projects";
 import { SectionHeading } from "../../components/SectionHeading";
 
@@ -19,6 +22,19 @@ const cats = [
 ] as const;
 
 export default function Projects() {
+  const [category, setCategory] =
+    useState<(typeof cats)[number]>("All");
+
+  const visibleProjects = useMemo(() => {
+    if (category === "All") {
+      return projects;
+    }
+
+    return projects.filter((project) =>
+      project.category.includes(category)
+    );
+  }, [category]);
+
   return (
     <main className="inner-page">
       <section className="inner-hero section-shell">
@@ -48,25 +64,28 @@ export default function Projects() {
             role="tablist"
             aria-label="Project categories"
           >
-            {cats.map((category) => (
-              <Link
-                key={category}
-                className="filter-chip"
-                href={
-                  category === "All"
-                    ? "/projects"
-                    : `/projects?category=${encodeURIComponent(category)}`
-                }
-                role="tab"
-                aria-selected={category === "All"}
-              >
-                {category}
-              </Link>
-            ))}
+            {cats.map((item) => {
+              const isActive = category === item;
+
+              return (
+                <button
+                  key={item}
+                  type="button"
+                  className={`filter-chip${
+                    isActive ? " is-active" : ""
+                  }`}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setCategory(item)}
+                >
+                  {item}
+                </button>
+              );
+            })}
           </div>
 
           <div className="project-grid">
-            {projects.map((project, index) => (
+            {visibleProjects.map((project, index) => (
               <Link
                 className="project-card"
                 href={`/projects/${project.slug}`}

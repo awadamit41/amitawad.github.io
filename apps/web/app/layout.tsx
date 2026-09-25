@@ -5,14 +5,27 @@ import { site } from "../data/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: site.title,
+  title: {
+    default: site.title,
+    template: `%s — ${site.name}`,
+  },
   description: site.description,
   manifest: "/manifest.webmanifest",
   openGraph: {
     title: site.title,
-    description: "I EMPATHISE, I THINK & EXECUTE",
+    description: site.description,
     type: "website",
     url: site.url,
+    siteName: site.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

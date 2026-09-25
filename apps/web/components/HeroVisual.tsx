@@ -59,7 +59,7 @@ function Scene() {
       <pointLight position={[3, 3, 4]} intensity={18} distance={12} />
       <pointLight position={[-3, -2, 2]} intensity={8} distance={10} color="#21923e" />
       <LoopObject />
-      <OrbitControls enableZoom={false} enablePan={false} autoRotate={false} />
+      <OrbitControls enableZoom={false} enablePan={false} />
     </Canvas>
   );
 }

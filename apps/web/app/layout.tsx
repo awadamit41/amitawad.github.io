@@ -12,16 +12,17 @@ export const metadata: Metadata = {
     title: site.title,
     description: "I EMPATHISE, I THINK & EXECUTE",
     type: "website",
-    url: site.url
-  }
+    url: site.url,
+  },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>
         <Header />
-        <div className="site-transition" aria-hidden="true" />
         {children}
       </body>
     </html>

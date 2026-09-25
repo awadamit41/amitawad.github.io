@@ -555,10 +555,13 @@ h1 {
   font-weight: 400;
 }
 
-.engineering-lab span:hover {
+.engineering-lab .skill:hover {
   transform: translateY(-6px);
-  border-color: rgba(33,146,62,.75);
-  background: rgba(33,146,62,.1);
+}
+
+.engineering-lab .skill-git:hover,
+.engineering-lab .skill-github:hover {
+  transform: translate(-50%, -6px);
 }
 
 /* Projects */

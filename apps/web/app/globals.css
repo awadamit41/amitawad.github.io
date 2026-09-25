@@ -188,6 +188,13 @@ p {
   letter-spacing: -.04em;
 }
 
+.split > *,
+.project-content > *,
+.resume-grid > *,
+.values-grid > * {
+  min-width: 0;
+}
+
 .split {
   display: grid;
   grid-template-columns: .8fr 1.2fr;

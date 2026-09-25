@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { TransitionLink } from "../../components/TransitionLink";
 import { SectionHeading } from "../../components/SectionHeading";
 import { experience } from "../../data/experience";
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description:
+    "View Amit Awad's education, experience, selected certifications, and downloadable resume.",
+};
 
 export default function Resume() {
   return (
@@ -55,11 +62,8 @@ export default function Resume() {
               {experience.map((item) => (
                 <article key={`${item.organization}-${item.role}`}>
                   <p className="eyebrow">{item.period}</p>
-
                   <h3>{item.role}</h3>
-
                   <p>{item.organization}</p>
-
                   <p>{item.description}</p>
                 </article>
               ))}
@@ -77,9 +81,7 @@ export default function Resume() {
 
           <div className="cert-list">
             <p>Linux for Developers - Coursera</p>
-            <p>
-              Computational Thinking - University of Pennsylvania
-            </p>
+            <p>Computational Thinking - University of Pennsylvania</p>
           </div>
 
           <TransitionLink className="text-link" href="/contact">

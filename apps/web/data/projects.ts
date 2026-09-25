@@ -96,7 +96,6 @@ export const projects: Project[] = [
       "Checkstyle and JaCoCo checks are integrated into the build",
       "GitHub Actions runs build, tests, Checkstyle, and coverage checks on pushes and pull requests"
     ],
-    status: "ENGINEERING PROJECT"
   },  
   {
     slug: "soy-beverage",
@@ -107,6 +106,6 @@ export const projects: Project[] = [
     solution: "Applied design thinking to customer personas, value proposition, pricing assumptions, distribution, farmer sourcing, and basic viability analysis.",
     stack: ["Design Thinking", "Market Analysis", "Customer Development", "Business Ideation"],
     highlights: ["Customer personas", "Value-chain mapping", "Pricing assumptions", "Distribution thinking", "Market viability"],
-    status: "CONCEPT"
+    
   }
 ];

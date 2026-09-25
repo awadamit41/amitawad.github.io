@@ -1,13 +1,10 @@
 :root {
   --bg: #070907;
-  --surface: #0d100d;
   --text: #f2f2ec;
   --muted: #a4aaa1;
   --line: rgba(242,242,236,.14);
   --green: #21923e;
   --violet: #9a6cff;
-  --gold: #e1a438;
-  --saffron: #d77a19;
   --cream: #e4d8c8;
   --max: 1440px;
   --display: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
@@ -343,22 +340,8 @@ h1 {
   );
 }
 
-.loop {
-  position: absolute;
-  width: 62%;
-  height: 40%;
-  border: 2px solid var(--green);
-  border-radius: 50%;
-  transform: rotate(-32deg);
-  box-shadow: 0 0 50px rgba(33,146,62,.08);
-}
 
-.loop--inner {
-  width: 52%;
-  height: 33%;
-  transform: rotate(32deg);
-  opacity: .55;
-}
+
 
 .hero-orbit {
   position: absolute;

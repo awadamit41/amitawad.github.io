@@ -5,7 +5,6 @@ import { useMemo, useState } from "react";
 import { projects } from "../../data/projects";
 import { SectionHeading } from "../../components/SectionHeading";
 
-
 const cats = [
   "All",
   "Engineering",
@@ -55,8 +54,8 @@ export default function Projects() {
 
           <div
             className="filter-row"
-            role="tablist"
-            aria-label="Project categories"
+            role="group"
+            aria-label="Filter projects by category"
           >
             {cats.map((item) => {
               const isActive = category === item;
@@ -65,11 +64,8 @@ export default function Projects() {
                 <button
                   key={item}
                   type="button"
-                  className={`filter-chip${
-                    isActive ? " is-active" : ""
-                  }`}
-                  role="tab"
-                  aria-selected={isActive}
+                  className={`filter-chip${isActive ? " is-active" : ""}`}
+                  aria-pressed={isActive}
                   onClick={() => setCategory(item)}
                 >
                   {item}

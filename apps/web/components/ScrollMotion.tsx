@@ -6,7 +6,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function ScrollMotion() {
   useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) {
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
+
     const ctx = gsap.context(() => {
       gsap.from(".hero-copy > *", {
         y: 42,
@@ -16,22 +25,41 @@ export function ScrollMotion() {
         ease: "power3.out",
       });
 
-      gsap.utils.toArray<HTMLElement>(".section-heading, .project-card, .timeline-item, .achievement-card, .contact-block").forEach((el) => {
-        gsap.from(el, {
-          y: 45,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 86%", once: true },
+      gsap
+        .utils
+        .toArray<HTMLElement>(
+          ".section-heading, .project-card, .timeline-item, .achievement-card, .contact-block"
+        )
+        .forEach((el) => {
+          gsap.from(el, {
+            y: 45,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 86%",
+              once: true,
+            },
+          });
         });
-      });
 
       gsap.to(".hero-grid", {
         yPercent: 14,
-        scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
       });
     });
-    return () => ctx.revert();
+
+    return () => {
+      ctx.revert();
+      ScrollTrigger.refresh();
+    };
   }, []);
+
   return null;
 }

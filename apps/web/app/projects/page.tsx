@@ -1,16 +1,10 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { projects } from "../../data/projects";
 import { SectionHeading } from "../../components/SectionHeading";
 
-export const metadata: Metadata = {
-  title: "Projects",
-  description:
-    "Selected engineering, open-source, automation, entrepreneurship, and research projects by Amit Awad.",
-};
 
 const cats = [
   "All",

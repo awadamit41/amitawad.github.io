@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeading } from "../../components/SectionHeading";
+
+export const metadata: Metadata = {
+  title: "Dharmaverse",
+  description:
+    "Dharmaverse is a gamified IKS platform exploring Indian cultural wisdom, moral values, stories, and thought processes for children aged 5–14.",
+};
 
 const mechanics = [
   "CULTURAL JOURNEY",
@@ -34,8 +41,8 @@ export default function Dharmaverse() {
         <div className="dharma-world" aria-hidden="true">
           <div className="world-core">IKS</div>
 
-          {mechanics.slice(0, 5).map((m) => (
-            <span key={m}>{m}</span>
+          {mechanics.slice(0, 5).map((mechanic) => (
+            <span key={mechanic}>{mechanic}</span>
           ))}
         </div>
       </section>
@@ -71,10 +78,10 @@ export default function Dharmaverse() {
           />
 
           <div className="dharma-flow">
-            {mechanics.map((m, i) => (
-              <div key={m}>
-                <span>0{i + 1}</span>
-                <h3>{m}</h3>
+            {mechanics.map((mechanic, index) => (
+              <div key={mechanic}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{mechanic}</h3>
               </div>
             ))}
           </div>

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Amit Awad — Builder. Engineer. Entrepreneur.",
+        alt: "Amit Awad - Builder. Engineer. Entrepreneur.",
       },
     ],
   },

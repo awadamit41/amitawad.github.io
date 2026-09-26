@@ -1,10 +1,33 @@
-import { TransitionLink } from "../../../components/TransitionLink";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { projects } from "../../../data/projects";
+import { TransitionLink } from "../../../components/TransitionLink";
 import { SectionHeading } from "../../../components/SectionHeading";
+import { projects } from "../../../data/projects";
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.problem,
+  };
 }
 
 export default async function ProjectPage({
@@ -13,20 +36,26 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = projects.find((item) => item.slug === slug);
 
-  if (!project) notFound();
+  if (!project) {
+    notFound();
+  }
 
   const related = projects
-    .filter((p) => p.slug !== project.slug)
+    .filter((item) => item.slug !== project.slug)
     .slice(0, 2);
 
   return (
     <main className="inner-page project-page">
       <section className="project-hero section-shell">
         <div>
-          <span className="eyebrow">{project.category.join(" / ")}</span>
+          <span className="eyebrow">
+            {project.category.join(" / ")}
+          </span>
+
           <h1>{project.title}</h1>
+
           <p className="problem">{project.problem}</p>
         </div>
 
@@ -44,6 +73,7 @@ export default async function ProjectPage({
               eyebrow="01 / OVERVIEW"
               title="WHY IT EXISTS."
             />
+
             <p>{project.overview}</p>
           </div>
 
@@ -52,6 +82,7 @@ export default async function ProjectPage({
               eyebrow="02 / SOLUTION"
               title="WHAT I BUILT."
             />
+
             <p>{project.solution}</p>
           </div>
         </div>
@@ -65,29 +96,33 @@ export default async function ProjectPage({
           />
 
           <div className="stack-list">
-            {project.stack.map((s) => (
-              <span key={s}>{s}</span>
+            {project.stack.map((item) => (
+              <span key={item}>{item}</span>
             ))}
           </div>
 
           <div className="highlights">
             <span className="eyebrow">HIGHLIGHTS</span>
 
-            {project.highlights.map((h) => (
-              <p key={h}>+ {h}</p>
+            {project.highlights.map((highlight) => (
+              <p key={highlight}>+ {highlight}</p>
             ))}
           </div>
 
           {(project.sourceFacts?.length || project.href) && (
             <div className="evidence-panel">
               <div>
-                <span className="eyebrow">SOURCE-BACKED EVIDENCE</span>
+                <span className="eyebrow">
+                  SOURCE-BACKED EVIDENCE
+                </span>
 
-                <h3>{project.sourceLabel ?? "PROJECT RECORD"}</h3>
+                <h3>
+                  {project.sourceLabel ?? "PROJECT RECORD"}
+                </h3>
 
                 <div className="evidence-facts">
-                  {project.sourceFacts?.map((f) => (
-                    <p key={f}>+ {f}</p>
+                  {project.sourceFacts?.map((fact) => (
+                    <p key={fact}>+ {fact}</p>
                   ))}
                 </div>
               </div>
@@ -128,13 +163,13 @@ export default async function ProjectPage({
           />
 
           <div className="related-grid">
-            {related.map((p) => (
+            {related.map((item) => (
               <TransitionLink
-                href={`/projects/${p.slug}`}
-                key={p.slug}
+                href={`/projects/${item.slug}`}
+                key={item.slug}
               >
-                <span>{p.category.join(" / ")}</span>
-                <h3>{p.title}</h3>
+                <span>{item.category.join(" / ")}</span>
+                <h3>{item.title}</h3>
                 <b>VIEW ↗</b>
               </TransitionLink>
             ))}

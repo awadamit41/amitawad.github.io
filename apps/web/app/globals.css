@@ -471,51 +471,51 @@ h1 {
   min-width: 100px;
   min-height: 66px;
   padding: 12px 20px;
-  border: 1px solid rgba(33,146,62,.35);
+  border: 1px solid rgba(33, 146, 62, 0.35);
   color: #bfe6c8;
-  background: rgba(33,146,62,.05);
+  background: rgba(33, 146, 62, 0.05);
   white-space: nowrap;
   transition:
-    transform .4s cubic-bezier(.2,.8,.2,1),
-    border-color .3s ease,
-    background .3s ease;
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
 
+/* Desktop layout — keep the center clear */
 .skill-qml {
-  left: 22%;
+  left: 8%;
   top: 18%;
 }
 
 .skill-python {
-  left: 33%;
-  top: 32%;
+  left: 27%;
+  top: 38%;
 }
 
 .skill-java {
-  left: 41%;
-  top: 14%;
+  left: 43%;
+  top: 10%;
 }
 
 .skill-linux {
-  right: 28%;
-  top: 20%;
+  right: 8%;
+  top: 18%;
 }
 
 .skill-selenium {
-  right: 26%;
-  top: 31%;
+  right: 8%;
+  top: 38%;
 }
 
+/* Bottom row */
 .skill-git {
-  left: 50%;
-  top: 62%;
-  transform: translateX(-50%);
+  left: 32%;
+  top: 82%;
 }
 
 .skill-github {
-  left: 50%;
-  top: 76%;
-  transform: translateX(-50%);
+  left: 58%;
+  top: 82%;
 }
 
 .lab-core {
@@ -525,7 +525,7 @@ h1 {
   transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
-  border: 1px solid rgba(33,146,62,.5);
+  border: 1px solid rgba(33, 146, 62, 0.5);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -534,7 +534,7 @@ h1 {
   gap: 12px;
   text-align: center;
   font: 9px/1.7 var(--mono);
-  letter-spacing: .15em;
+  letter-spacing: 0.15em;
   color: #bfe6c8;
   background: #07100a;
   z-index: 1;
@@ -547,12 +547,10 @@ h1 {
 
 .engineering-lab .skill:hover {
   transform: translateY(-6px);
+  border-color: rgba(33, 146, 62, 0.75);
+  background: rgba(33, 146, 62, 0.1);
 }
 
-.engineering-lab .skill-git:hover,
-.engineering-lab .skill-github:hover {
-  transform: translate(-50%, -6px);
-}
 
 /* Projects */
 

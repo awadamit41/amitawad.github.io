@@ -7,7 +7,6 @@ import { projects } from "../data/projects";
 import { site } from "../data/site";
 import { ScrollMotion } from "../components/ScrollMotion";
 
-
 const principles = [
   "Empathy",
   "Curiosity",
@@ -27,7 +26,9 @@ export default function Home() {
       <section className="hero section-shell" aria-labelledby="hero-title">
         <div className="hero-copy">
           <span className="eyebrow">BUILDER · ENGINEER · ENTREPRENEUR</span>
+
           <h1 id="hero-title">{site.hero}</h1>
+
           <p>{site.description}</p>
 
           <div className="hero-actions">
@@ -55,12 +56,13 @@ export default function Home() {
       >
         <div className="section-shell split">
           <SectionHeading
+            id="about-title"
             eyebrow="01 / ABOUT"
             title="FROM CURIOSITY TO CREATION."
           />
 
           <div>
-            <p className="statement" id="about-title">
+            <p className="statement">
               THE WAY I THINK.
             </p>
 
@@ -133,12 +135,13 @@ export default function Home() {
       >
         <div className="section-shell">
           <SectionHeading
+            id="projects-title"
             eyebrow="03 / PROJECTS"
             title="WHERE IDEAS TAKE FORM."
             accent="violet"
           />
 
-          <p className="statement" id="projects-title">
+          <p className="statement">
             WHAT I BUILD.
           </p>
 
@@ -214,13 +217,14 @@ export default function Home() {
       >
         <div className="section-shell split">
           <SectionHeading
+            id="entrepreneurship-title"
             eyebrow="05 / ENTREPRENEURSHIP"
             title="THE PERSPECTIVE TO SEE PROBLEMS AS OPPORTUNITIES."
             accent="gold"
           />
 
           <div>
-            <p className="statement" id="entrepreneurship-title">
+            <p className="statement">
               EMPATHISE → THINK → BUILD → LEARN → EMPOWER
             </p>
 
@@ -247,6 +251,7 @@ export default function Home() {
         <div className="section-shell dharma-panel">
           <div>
             <SectionHeading
+              id="dharma-title"
               eyebrow="06 / DHARMAVERSE"
               title="CULTURE, REIMAGINED FOR THE NEXT GENERATION."
               accent="saffron"
@@ -261,7 +266,7 @@ export default function Home() {
               <span>PLAY</span>
             </div>
 
-            <p id="dharma-title">
+            <p>
               A gamified IKS platform designed to bring India's cultural
               wisdom, moral values, and stories into a form children can
               explore.

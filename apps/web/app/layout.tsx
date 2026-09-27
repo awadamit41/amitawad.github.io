@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Amit Awad - Builder. Engineer. Entrepreneur.",
+        alt: "Amit Awad — Builder. Engineer. Entrepreneur.",
       },
     ],
   },
@@ -58,6 +58,15 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+
+        <footer className="site-footer">
+          <div>
+            <span>AMIT</span>
+            <span>© {new Date().getFullYear()} Amit Awad</span>
+            <span>BUILDER · ENGINEER · ENTREPRENEUR</span>
+          </div>
+          <p>{site.philosophy}</p>
+        </footer>
       </body>
     </html>
   );

@@ -30,7 +30,10 @@ export default function Home() {
           <p>{site.description}</p>
 
           <div className="hero-actions">
-            <MagneticButton href="#projects">EXPLORE MY WORK</MagneticButton>
+            <MagneticButton href="#projects">
+              EXPLORE MY WORK
+            </MagneticButton>
+
             <MagneticButton href="/Amit_Awad_Resume.pdf">
               GET MY RESUME
             </MagneticButton>
@@ -93,6 +96,7 @@ export default function Home() {
       >
         <div className="section-shell">
           <SectionHeading
+            id="engineering-title"
             eyebrow="02 / ENGINEERING"
             title="THINK. DESIGN. BUILD."
           />
@@ -114,7 +118,7 @@ export default function Home() {
             <span className="skill skill-github">GitHub</span>
           </div>
 
-          <p className="section-note" id="engineering-title">
+          <p className="section-note">
             Technology is most useful when it is connected to a real problem, a
             real system, or meaningful work.
           </p>
@@ -178,6 +182,7 @@ export default function Home() {
       >
         <div className="section-shell">
           <SectionHeading
+            id="experience-title"
             eyebrow="04 / EXPERIENCE"
             title="WHERE I PUT IT INTO PRACTICE."
           />
@@ -198,10 +203,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-
-          <span id="experience-title" className="sr-only">
-            Experience timeline
-          </span>
         </div>
       </section>
 
@@ -279,6 +280,7 @@ export default function Home() {
       >
         <div className="section-shell achievement">
           <SectionHeading
+            id="achievement-title"
             eyebrow="07 / ACHIEVEMENT"
             title="THE FIRST STEP TOWARDS EXECUTION."
           />
@@ -288,10 +290,6 @@ export default function Home() {
             <span>Internal Smart India Hackathon 2025</span>
             <span>Heritage &amp; Culture / Open Innovation</span>
           </div>
-
-          <span id="achievement-title" className="sr-only">
-            Achievement
-          </span>
         </div>
       </section>
 

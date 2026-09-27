@@ -5,5 +5,19 @@
   "display": "standalone",
   "background_color": "#070707",
   "theme_color": "#070707",
-  "description": "Software engineer, builder, and entrepreneur driven by curiosity, problem-solving, and the desire to build things that matter."
+  "description": "Software engineer, builder, and entrepreneur driven by curiosity, problem-solving, and the desire to build things that matter.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }

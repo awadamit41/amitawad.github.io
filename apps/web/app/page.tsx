@@ -1,11 +1,12 @@
+import { HeroVisualLoader } from "../components/HeroVisualLoader";
 import { TransitionLink } from "../components/TransitionLink";
-import { HeroVisual } from "../components/HeroVisual";
 import { MagneticButton } from "../components/MagneticButton";
 import { SectionHeading } from "../components/SectionHeading";
 import { experience } from "../data/experience";
 import { projects } from "../data/projects";
 import { site } from "../data/site";
 import { ScrollMotion } from "../components/ScrollMotion";
+
 
 const principles = [
   "Empathy",
@@ -40,7 +41,7 @@ export default function Home() {
           </div>
         </div>
 
-        <HeroVisual />
+        <HeroVisualLoader />
 
         <div className="hero-scroll" aria-hidden="true">
           SCROLL TO EXPLORE ↓

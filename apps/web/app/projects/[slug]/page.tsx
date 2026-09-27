@@ -133,7 +133,8 @@ export default async function ProjectPage({
                     className="button"
                     href={project.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    aria-label={`View source for ${project.title} — opens in a new tab`}
                   >
                     VIEW SOURCE ↗
                   </a>
@@ -144,7 +145,8 @@ export default async function ProjectPage({
                     className="button"
                     href={project.docsHref}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    aria-label={`View documentation for ${project.title} — opens in a new tab`}
                   >
                     VIEW DOCUMENTATION ↗
                   </a>

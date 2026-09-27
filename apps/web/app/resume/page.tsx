@@ -33,7 +33,8 @@ export default function Resume() {
             className="button"
             href="/Amit_Awad_Resume.pdf"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            aria-label="Open Amit Awad resume PDF — opens in a new tab"
           >
             OPEN PDF ↗
           </a>

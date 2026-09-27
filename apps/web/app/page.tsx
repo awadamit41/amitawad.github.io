@@ -325,25 +325,28 @@ export default function Home() {
             <a
               href={site.socials.linkedin}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn — opens in a new tab"
             >
-              LinkedIn
+              LinkedIn ↗
             </a>
 
             <a
               href={site.socials.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="GitHub — opens in a new tab"
             >
-              GitHub
+              GitHub ↗
             </a>
 
             <a
               href={site.socials.instagram}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="Instagram — opens in a new tab"
             >
-              Instagram
+              Instagram ↗
             </a>
           </div>
         </div>

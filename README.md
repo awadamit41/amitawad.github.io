@@ -1,4 +1,4 @@
-# Amit Awad's Portfolio
+# Amit Awad's Portfolio Website 
 
 Personal portfolio built with Next.js, React, TypeScript, and a static-exportable architecture.
 
